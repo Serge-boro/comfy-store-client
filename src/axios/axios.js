@@ -1,5 +1,6 @@
 import axios from 'axios'
-const BASE_URL = 'https://comfy-store-service.onrender.com/store'
+const BASE_URL =
+  'https://dazzling-tartufo-223c48.netlify.app/.netlify/functions/app'
 // const BASE_URL = '/'
 
 export default axios.create({
