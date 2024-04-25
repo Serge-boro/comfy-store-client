@@ -89,7 +89,7 @@ const Login = () => {
         className='w-80 p-4 shadow-lg btn btn-primary btn-block mb-12'
         onClick={guestAccess}
       >
-        guest user
+        continue as guest user
       </button>
       <p className='text-center mb-48'>
         Not a member yet?

@@ -50,7 +50,6 @@ export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
       // },
       withCredentials: true,
     })
-    console.log(data)
     return data
   } catch (err) {
     console.log(err.response)
@@ -75,14 +74,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    // loginUser: (state, action) => {
-    //   console.log('login')
-    // },
-    // logoutUser: (state) => {
-    //   state.user = {}
-    //   // localStorage.removeItem('user')
-    //   toast.success('Logged out successfully')
-    // },
     toggleTheme: (state) => {
       const { winter, dracula } = themes
       state.theme = state.theme === dracula ? winter : dracula
@@ -93,7 +84,6 @@ const userSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(addNewUser.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.user = action.payload
         localStorage.setItem('user', JSON.stringify(state.user.user))
       })

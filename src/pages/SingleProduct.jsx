@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import { formatPrice, generateAmountOptions } from '../utils/index'
 import { Loading } from '../components'
 import { useDispatch } from 'react-redux'
-import { addItemCart, cartRender } from '../feature/cart/cartSlice'
+import { addItemCart } from '../feature/cart/cartSlice'
 import { nanoid } from 'nanoid'
 
 const url = '/products'
@@ -39,9 +39,6 @@ const SingleProduct = () => {
 
   const addToCart = () => {
     dispatch(addItemCart({ cartProduct }))
-    dispatch(cartRender())
-
-    console.log()
     setAmount(1)
     navigate('/products')
   }
@@ -54,7 +51,6 @@ const SingleProduct = () => {
 
   const getData = async () => {
     const { data } = await doRequestSingleProduct()
-    // console.log(data)
     setColorData(data[0]?.attributes?.colors)
     setIsSingleProduct(data[0])
   }

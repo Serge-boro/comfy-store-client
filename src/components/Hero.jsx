@@ -33,14 +33,12 @@ const Hero = () => {
           We are changing the way people shop
         </h1>
         <p className='mt-8 max-w-xl text-lg leading-8 mb-8'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
-          adipisci, voluptas, mollitia fuga sint temporibus explicabo quo
-          sapiente necessitatibus neque id nam alias esse illum similique porro
-          corporis voluptates ipsum praesentium, quod dicta sequi. Maxime
-          laboriosam sapiente nulla. Dolores, fugiat.
-        </p>
-        <p className={`text-[#ff5efa] ${user && 'hidden'} `}>
-          Please sign in or take the guest button to get more options
+          For demonstration, I've created cookie dependency to reach individual
+          product items. You get an option to stay and follow as a guest or
+          please be free to make a simple register and sign in to check all the
+          options on this app. To create needs functionality I worked with
+          react.js and created interceptors on the client side and I've used
+          node.js, express, mongoDB, jwt, bcrypt on the back end.
         </p>
         <div className='mt-10'>
           <Link to='/products' className='btn btn-primary'>

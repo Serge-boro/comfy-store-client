@@ -81,7 +81,6 @@ export const updateItemCart = createAsyncThunk(
         // },
         withCredentials: true,
       })
-      console.log(data)
       return data
     } catch (err) {
       console.log(err.response)
@@ -106,7 +105,6 @@ export const deleteCartItems = createAsyncThunk('user/deleteCart', async () => {
       // },
       withCredentials: true,
     })
-    console.log(data)
     return data
   } catch (err) {
     console.log(err.response)
@@ -130,7 +128,6 @@ export const renderItemCart = createAsyncThunk('user/renderCart', async () => {
       // },
       withCredentials: true,
     })
-    console.log(data)
     return data
   } catch (err) {
     console.log(err.response)
@@ -150,23 +147,11 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: defaultState,
   reducers: {
-    cartRender: (state, action) => {
-      // console.log(state.cartItems)
-      // state.numItemsInCart = state.cartItems.reduce(
-      //   (previosValue, cartItem) => {
-      //     return previosValue + cartItem.amount
-      //   },
-      //   0
-      // )
-
-      console.log(state.numItemsInCart)
-    },
     clearCart: () => {
       return defaultState
     },
     removeCartItem: (state, action) => {
       const { cartID } = action.payload
-      console.log(state.cartItems)
       const product = state.cartItems.find((item) => item.cartID === cartID)
       state.cartItems = state.cartItems.filter((item) => item.cartID !== cartID)
       state.numItemsInCart -= product.amount
@@ -210,7 +195,6 @@ const cartSlice = createSlice({
   },
 })
 
-export const { clearCart, editCartItem, removeCartItem, cartRender } =
-  cartSlice.actions
+export const { clearCart, editCartItem, removeCartItem } = cartSlice.actions
 
 export default cartSlice.reducer

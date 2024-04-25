@@ -1,14 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 import { formatPrice } from '../../utils'
 import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { clearCart, deleteCartItems } from '../../feature/cart/cartSlice'
 const OrdersList = ({ order, setOrder }) => {
   const navigate = useNavigate()
   const { address, cartItems, chargeTotal, date, name, numItemsInCart } = order
+
+  const dispatch = useDispatch()
 
   const addressOrder = address && address.slice(0, 15) + '...'
 
   const orderProceed = () => {
     setOrder({})
+    dispatch(clearCart())
+    dispatch(deleteCartItems())
     toast.success('payments was proceeded')
     redirect()
   }

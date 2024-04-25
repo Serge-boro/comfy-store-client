@@ -51,9 +51,6 @@ export const ProductsContext = ({ children }) => {
 
     // const controller = new AbortController()
 
-    // console.log(controller)
-    // console.log(controller.signal)
-
     const doRequest = async () => {
       try {
         setLoading(true)
@@ -64,7 +61,6 @@ export const ProductsContext = ({ children }) => {
           // {
           //   signal: controller.signal,
           // },
-
           body
         )
         data?.data && setLoading(false)

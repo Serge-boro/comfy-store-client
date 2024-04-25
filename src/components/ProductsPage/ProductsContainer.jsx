@@ -8,8 +8,6 @@ const ProductsContainer = ({ products, errors, meta }) => {
 
   const totalProducts = meta?.pagination?.total
 
-  // console.log(totalProducts)
-
   const setActiveStyles = (pattern) => {
     return `text-xl btn btn-circle btn-sm ${
       pattern === layout
