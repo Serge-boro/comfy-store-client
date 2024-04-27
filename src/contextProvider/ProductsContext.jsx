@@ -81,7 +81,6 @@ export const ProductsContext = ({ children }) => {
           localStorage.removeItem('user')
           dispatch(logoutUser())
           dispatch(deleteCartItems())
-          navigate(0)
           toast.success('Authorization failed, please log in')
         }
         setLoading(false)
