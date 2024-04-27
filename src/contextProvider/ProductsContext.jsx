@@ -53,7 +53,7 @@ export const ProductsContext = ({ children }) => {
     const location = useLocation()
     const dispatch = useDispatch()
 
-    // const controller = new AbortController()
+    const controller = new AbortController()
 
     const doRequest = async () => {
       try {
@@ -62,9 +62,9 @@ export const ProductsContext = ({ children }) => {
         const { data } = await axiosPrivate[method](
           url,
           { params },
-          // {
-          //   signal: controller.signal,
-          // },
+          {
+            signal: controller.signal,
+          },
           body
         )
         data?.data && setLoading(false)
@@ -87,7 +87,7 @@ export const ProductsContext = ({ children }) => {
         setLoading(false)
       }
     }
-    // controller.abort()
+    controller.abort()
     return { doRequest, errors }
   }
 
