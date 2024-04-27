@@ -36,8 +36,13 @@ export const addItemCart = createAsyncThunk(
         toast('No server Response')
       } else if (err.response?.status === 400) {
         toast(err.response.data.message)
-      } else if (err.response?.status === 401) {
-        toast(err.response.data.message)
+      } else if (err.response.status === 401 || err.response.status === 403) {
+        navigate('/login', { state: { from: location }, replace: true })
+        localStorage.removeItem('user')
+        dispatch(logoutUser())
+        dispatch(deleteCartItems())
+        navigate(0)
+        toast.success('Authorization failed, please log in')
       } else {
         toast('Login failed')
       }
@@ -62,8 +67,13 @@ export const removeItemCart = createAsyncThunk(
         toast('No server Response')
       } else if (err.response?.status === 400) {
         toast(err.response.data.message)
-      } else if (err.response?.status === 401) {
-        toast(err.response.data.message)
+      } else if (err.response.status === 401 || err.response.status === 403) {
+        navigate('/login', { state: { from: location }, replace: true })
+        localStorage.removeItem('user')
+        dispatch(logoutUser())
+        dispatch(deleteCartItems())
+        navigate(0)
+        toast.success('Authorization failed, please log in')
       } else {
         toast('Login failed')
       }
@@ -88,8 +98,13 @@ export const updateItemCart = createAsyncThunk(
         toast('No server Response')
       } else if (err.response?.status === 400) {
         toast(err.response.data.message)
-      } else if (err.response?.status === 401) {
-        toast(err.response.data.message)
+      } else if (err.response.status === 401 || err.response.status === 403) {
+        navigate('/login', { state: { from: location }, replace: true })
+        localStorage.removeItem('user')
+        dispatch(logoutUser())
+        dispatch(deleteCartItems())
+        navigate(0)
+        toast.success('Authorization failed, please log in')
       } else {
         toast('Login failed')
       }
@@ -112,8 +127,13 @@ export const deleteCartItems = createAsyncThunk('user/deleteCart', async () => {
       toast('No server Response')
     } else if (err.response?.status === 400) {
       toast(err.response.data.message)
-    } else if (err.response?.status === 401) {
-      toast(err.response.data.message)
+    } else if (err.response.status === 401 || err.response.status === 403) {
+      navigate('/login', { state: { from: location }, replace: true })
+      localStorage.removeItem('user')
+      dispatch(logoutUser())
+      dispatch(deleteCartItems())
+      navigate(0)
+      toast.success('Authorization failed, please log in')
     } else {
       toast('Login failed')
     }
@@ -135,8 +155,13 @@ export const renderItemCart = createAsyncThunk('user/renderCart', async () => {
       toast('No server Response')
     } else if (err.response?.status === 400) {
       toast(err.response.data.message)
-    } else if (err.response?.status === 401) {
-      toast(err.response.data.message)
+    } else if (err.response.status === 401 || err.response.status === 403) {
+      navigate('/login', { state: { from: location }, replace: true })
+      localStorage.removeItem('user')
+      dispatch(logoutUser())
+      dispatch(deleteCartItems())
+      navigate(0)
+      toast.success('Authorization failed, please log in')
     } else {
       toast('Login failed')
     }

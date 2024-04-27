@@ -3,6 +3,9 @@ import axios from '../axios/axios'
 import useAxiosPrivate from '../token/useAxiosPrivate'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { logoutUser } from '../feature/user/userSlice'
+import { deleteCartItems } from '../feature/cart/cartSlice'
 
 const ProductsProvider = createContext()
 export const ProductsContext = ({ children }) => {
@@ -48,6 +51,7 @@ export const ProductsContext = ({ children }) => {
 
     const navigate = useNavigate()
     const location = useLocation()
+    const dispatch = useDispatch()
 
     // const controller = new AbortController()
 
@@ -72,9 +76,12 @@ export const ProductsContext = ({ children }) => {
             <h4>Ooops....something went wrong: {err.message}</h4>
           </div>
         )
-        if (err.response.status === 401) {
+        if (err.response.status === 401 || err.response.status === 403) {
           navigate('/login', { state: { from: location }, replace: true })
           localStorage.removeItem('user')
+          dispatch(logoutUser())
+          dispatch(deleteCartItems())
+          navigate(0)
           toast.success('Authorization failed, please log in')
         }
         setLoading(false)

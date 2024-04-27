@@ -6,13 +6,12 @@ const links = [
   { id: 5, url: 'checkout', text: 'checkout' },
   { id: 6, url: 'orders', text: 'orders' },
 ]
-import { useSelector } from 'react-redux'
+
 import { NavLink } from 'react-router-dom'
 import { useContextProvider } from '../contextProvider/ProductsContext'
 
 const NavLinks = () => {
   const { cleanUpInputs, user } = useContextProvider()
-  // const { user } = useSelector((state) => state.userState.user)
 
   return (
     <>
