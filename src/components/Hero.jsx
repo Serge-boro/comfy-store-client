@@ -37,9 +37,10 @@ const Hero = () => {
           product items. You get an option to stay and follow the app as a guest
           or please be free to make a simple register and sign in to check all
           the possibilities of the app. It is a MERN full-stack project with
-          JWT, bcrypt library, schemas for MongoDB on the back end, and
-          interceptors on the front end. For the demo, I put a 180-second
-          expiration time for the cookie with navigation back to the login page.
+          JWT, bcrypt library, schemas for MongoDB, pagination, different data
+          sort methods, etc. on the back end, and interceptors on the front end.
+          For the demo, I put a 90-second expiration time for the cookie with
+          navigation back to the login page.
         </p>
         <div className='mt-10'>
           <Link to='/products' className='btn btn-primary'>
